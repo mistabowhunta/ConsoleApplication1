@@ -6,11 +6,116 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-    class program
+    class Program
     {
+        static void Main(string[] args)
+        {
 
+        }
     }
+
 }
+    // EXAMPLE OF MAKING A PYRAMID OF NUMBERS USING FOR LOOPS 1 121 12321 1234321 VERTICALLY
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+
+//            int intLayers = 9, intSpace, intNum, j;
+
+//            for (j = 1;  j <= intLayers; j++) //always try to use variables in loops if possible like j in rest of program. NOT declare new variables. 
+//                                                //Overall loop that tells how many rows/layers deep to go
+//            {
+//                for (intSpace = 1; intSpace <= (intLayers - j); intSpace++ ) // neat little trick to enter in spaces
+//                {
+//                    Console.Write(" ");
+//                }
+//                for (intNum = 1; intNum <= j; intNum++) //increasing #
+//                {
+//                    Console.Write(intNum);
+//                }
+//                for(intNum = (intNum-2); intNum >=1; intNum--) // decreasing #
+//                {
+//                    Console.Write(intNum);
+//                }
+//                Console.WriteLine(); 
+//            }
+//            Console.ReadLine();
+//        }
+//    }
+//}
+
+    /// <summary>
+    /// EXAMPLE OF RAISING USER INPUT # TO THE THIRD POWER AND ASKING IF CONTINUE
+    /// </summary>
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int intPower = 3, intInput;
+//            string strGo;
+//            bool bContinue = false;
+
+//            while (bContinue == false) 
+//            {
+//                Console.Write("Please enter any number you want to see the third power of: ");
+//                intInput = Int32.Parse(Console.ReadLine());
+//                Console.WriteLine(Math.Pow(intInput, intPower));
+//                Console.Write("Would you like to continue? Press either 'y' or 'Y' then enter: ");
+//                strGo = Console.ReadLine();
+//                if (strGo == "y")
+//                {
+//                    //Console.WriteLine("goodbye"); //have to put these y and Y at the top of if statements or else it won't work. Put != at bottom
+//                    //bContinue = true;
+//                    continue;
+//                }
+//                else if(strGo == "Y")
+//                {
+//                    //Console.WriteLine("goodbye");
+//                    //bContinue = true;
+//                }
+//                else if (strGo !="y")
+//                {
+//                    Console.WriteLine("goodbye");
+//                    bContinue = true;
+//                    //continue;
+//                }
+//                else if (strGo != "Y")
+//                {
+//                    Console.WriteLine("goodbye");
+//                    bContinue = true;
+//                    //continue;
+//                }
+
+//            }
+
+//            //Math.Pow(int,power);
+//        }
+//    }
+//}
+
+    /// <summary>
+    /// EXAMPLE OF FOR NESTED FOR LOOPS WRITING 122333444455555 (BUT THEY SHOW VERTICALLY///
+    /// </summary>
+    //class program
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        int i, j;
+
+    //        for (i = 1; i <= 5; i++)
+    //        {
+    //            Console.WriteLine();
+    //            for (j = 1; j <= i; j++)
+    //            {
+    //                Console.Write(i);
+    //            }
+    //        }
+    //        Console.ReadLine();
+    //    }
+
+    //}
+//}
     /// <summary>
     /// //EXAMPLE OF CREATING A TABLE OF MULTIPLICATION RESULTS FROM USER PROVIDED #
     /// </summary>
@@ -184,5 +289,81 @@ namespace ConsoleApplication1
 
 //        }
 
+//    }
+//}
+
+    /// <summary>
+    /// CALCULATING PERCENTAGE VALUE FROM USER PROVIDED NUMBER
+    /// </summary>
+    //class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
+
+    //        double result, num1;
+    //        int intAnswer;
+
+    //    label:
+
+    //        Console.WriteLine("Please enter a number to calculate percentage value:  ");
+    //        num1 = Int32.Parse(Console.ReadLine());
+    //        num1 = num1 / 100;
+    //        Console.WriteLine("Here is the percentage form:  " + num1);
+    //        Console.WriteLine("Would you like to continue? 1 for yes or 2 for no");
+    //        intAnswer = Int32.Parse(Console.ReadLine());
+    //        if (intAnswer == 1)
+    //        {
+    //            goto label;
+    //        }
+    //        else if (intAnswer == 2)
+    //        {
+    //            Console.WriteLine("Thank you, come again");
+    //        }
+
+
+
+
+            ///// USING CLASS FROM ANOTHER PART IN PROJECT
+            //int result;
+            //int num1, num2;
+            //Console.WriteLine("Enter first value to add:\t");
+            //num1 = Int32.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter second value:\t");
+            //num2 = Int32.Parse(Console.ReadLine());
+
+            //add a = new add();
+
+            //result = a.adding(num1, num2);
+            //Console.WriteLine(result);
+            //Console.WriteLine("Press Enter to exit");
+            //Console.ReadLine();
+            //////
+            
+            //////GRABBING VALUES FROM USER AND DISPLAYING THEM IN CONSOLE
+            ////cretaing integer type variable
+            //int pin, houseNumber;
+            //string name, city, street;
+            ////Displaying message
+            //Console.WriteLine("Please enter name:");
+            //name = Console.ReadLine();
+
+            //Console.WriteLine("Enter City:");
+            //city = Console.ReadLine();
+
+            //Console.WriteLine("Enter House #:");
+            //houseNumber = Int32.Parse(Console.ReadLine()); //need to convert int to string
+
+            //Console.WriteLine("Enter Street:");
+            //street = Console.ReadLine();
+
+            //Console.WriteLine("Enter PIN:");
+            //pin = Int32.Parse(Console.ReadLine()); //need to convert int to string
+
+
+            //Console.WriteLine("Name: {0} \t City: {1} \t House#: {2} \t Street: {3} \n PIN: {4} \n Press enter to exit", name, city, houseNumber, street, pin); //Output
+
+            //Console.ReadLine();
+            //////////////
+//        }
 //    }
 //}
