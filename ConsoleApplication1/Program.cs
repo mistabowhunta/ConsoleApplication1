@@ -8,19 +8,263 @@ namespace ConsoleApplication1
 {
     class Program
     {
-        static void Main(string[] args)
-        {
 
-        }
     }
 }
     /// <summary>
-    /// EXAMPLE OF A PYRAMID TOUGH ONE!!!!////
+    /// EXAMPLE OF CALLING MULTIPLE METHODS LOCATED IN A DIFFERENT CLASS
     /// </summary>
-    //class Program
-    //{
-       
-       
+//    class Calculate
+//    {
+//        public int intNum1, intNum2, intResult;
+//        public string chOps;
+
+//        public void add()
+//        {
+//            intResult = intNum1 + intNum2;
+//        }
+//        public void Subtract()
+//        {
+//            intResult = intNum1 - intNum2;
+//        }
+//        public void Multiply()
+//        {
+//            intResult = intNum1 * intNum2;
+//        }
+//        public void Divide()
+//        {
+//            intResult = intNum1 / intNum2;
+//        }
+//        public void print()
+//        {
+//            Console.WriteLine();
+//            Console.WriteLine("Result: " + intResult);
+//            Console.WriteLine();
+//            Console.WriteLine("Press Enter to exit...");
+//            Console.ReadLine();
+//        }
+//    }
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Calculate cal = new Calculate();
+//            Console.Write("Enter first number: ");
+//            cal.intNum1 = Int32.Parse(Console.ReadLine());
+//            Console.Write("Enter second number: ");
+//            cal.intNum2 = Int32.Parse(Console.ReadLine());
+//            Console.Write("What calculation would you like to perform on these two numbers? '+' '-' '*' '/': ");
+//            cal.chOps = Console.ReadLine();
+
+//            if (cal.chOps == "+")
+//            {
+//                cal.add();
+//                cal.print();
+//            }
+//            else if (cal.chOps == "-")
+//            {
+//                cal.Subtract();
+//                cal.print();
+//            }
+//            else if (cal.chOps == "*")
+//            {
+//                cal.Multiply();
+//                cal.print();
+//            }
+//            else if (cal.chOps == "/")
+//            {
+//                cal.Divide();
+//                cal.print();
+//            }
+//            else
+//            {
+//                Console.WriteLine("You did not enter the correct operator I told you too! Goodbye!");
+//                Console.ReadLine();
+//            }
+                
+                
+
+//        }
+//    }
+//}
+    /// <summary>
+    /// EXAMPLE OF CALLING A STATIC CLASS BY ONLY WRITING CLASSNAME.METHODNAME(). WITHOUT CREATING AN OBJECT
+    /// </summary>
+//    class Calculate
+//    {
+//        public static void add()
+//        {
+//            int intNum, intNum2, intResult;
+//            Console.Write("Enter first # to be added: ");
+//            intNum = Int32.Parse(Console.ReadLine());
+//            Console.Write("Enter second # to be added: ");
+//            intNum2 = Int32.Parse(Console.ReadLine());
+//            intResult = intNum + intNum2;
+//            Console.Write("\tResult: {0}", intResult);
+//        }
+//    }
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Calculate.add();// becuase getIt class is static I can access it by writing only classname.methodname(). If it wasn't a static class I would need to create an object.
+//                            //                                // Example of object if the class was not static: Variable var = new Variable();
+//            Console.ReadLine();
+//        }
+//    }
+//}
+   
+    /// <summary>
+    /// EXAMPLE OF ACCESSING PRIVATE VARIABLE USING GET SET PROPERTY...FORGET THE CLASS NAMES, I CHANGED THE CODE AROUND A BIT
+    /// </summary>
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            childUnherited chUn = new childUnherited();
+//            chUn.print();
+//        }
+//    }
+
+//    class child
+//    {
+//        private int intNum;
+//        public int Number1
+//        {
+//            get
+//            {
+//                return intNum;
+//            }
+//            set
+//            {
+//                intNum = value;
+//            }
+//        }
+//    }
+//    class childUnherited : child
+//    {
+
+//        public void print()
+//        {
+//            Number1 = Number1 + 2; //referencing ex below, the private intNum can now be accessed do to get set property
+//            Console.WriteLine(Number1);
+//        }
+//    }
+//}
+
+/// <summary>
+/// EXAMPLE OF TRYING TO ACCESS A PRIVATE VARIABLE IN ANOTHER CLASS - CAN'T DO IT
+/// </summary>
+//    class Program 
+//    {
+//        static void Main(string[] args)
+//        {
+//            child ch = new child();
+//            ch.print();
+//            childUnherited chUn = new childUnherited();
+//            chUn.print();
+//        }
+//    }
+
+//    class child 
+//    {
+//        private int intNum;
+
+//        public void print()
+//        {
+//            intNum = intNum + 2;
+//            Console.WriteLine(intNum);
+//        }
+
+//    }
+//    class childUnherited : child
+//    {
+
+//         new void print()
+//        {
+//            intNum = intNum + 2; // beacause intNum in base class (child) is private this class cannot access it unless do a get set
+//            Console.WriteLine(intNum);
+//        }
+//    }
+//}
+/// <summary>
+/// EXAMPLE OF ACCESSING PRIVATE VARIABLES VIA GET SET PROPERTY
+/// </summary>
+//    class input
+//    {
+//        private int intNum, intNum2, intResult; //class doesn't have to be private, only the variables. These variables are private within the input class
+//        public void add() // method for writing to the console
+//        {
+//            intResult = intNum + intNum2;
+//            Console.WriteLine("\t Result = {0}", intResult);
+//            Console.ReadLine();
+//        }
+//        public int Number1 //creating property for storing value in intNum
+//        {
+//            get
+//            {
+//                return intNum;
+//            }
+//            set
+//            {
+//                intNum = value;
+//            }
+//        }
+//        public int Number2 //creating property for storing value in intNum2
+//        {
+//            get
+//            {
+//                return intNum2;
+//            }
+//            set
+//            {
+//                intNum2 = value;
+//            }
+//        }
+
+//    }
+
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            input inp = new input(); //creating a new instance
+//            Console.WriteLine("Enter first number to be added: ");
+//            inp.Number1 = Int32.Parse(Console.ReadLine()); //using get set property to grab private variables
+
+//            Console.WriteLine("Enter second number: ");
+//            inp.Number2 = Int32.Parse(Console.ReadLine());
+
+//            inp.add(); //calling add() method to perform addition
+
+//        }
+//    }
+//}
+/// <summary>
+/// /EXAMPLE OF USING A PRIVATE VARIABLE IN SAME CLASS
+/// </summary>
+//    class Program
+//    {
+//        private void add()
+//        {
+//            int intNum = 2;
+//            Console.WriteLine("Using a private variable in same class " + intNum);
+//        }
+//        static void Main(string[] args)
+//        {
+//            Program p = new Program();
+//            p.add();
+//            Console.ReadLine();
+//        }
+//    }
+//}
+/// <summary>
+/// EXAMPLE OF A PYRAMID TOUGH ONE!!!!////
+/// </summary>
+//class Program
+//{
+
+
 //        static void Main(string[] args) //learning moment...Get a good visual of what you are trying to program BEFORE trying to write code. I convinced myself the reverse triangle COULD
 //                                        // NOT contain a space for the first loop. BUT actually the first loop needed a space. Then ALL the different codes would have worked. :/
 //        {
@@ -43,7 +287,7 @@ namespace ConsoleApplication1
 //                }
 //                Console.WriteLine();
 //            }
-           
+
 //            //reversing the triangle to create a pyramid
 
 //            for (j = (intLayers - 1); j >= 1; j--)
@@ -65,10 +309,10 @@ namespace ConsoleApplication1
 //            Console.ReadLine();
 //        }
 //    }
-    
+
 
 //}
-    // EXAMPLE OF MAKING A PYRAMID OF NUMBERS USING FOR LOOPS 1 121 12321 1234321 VERTICALLY
+// EXAMPLE OF MAKING A PYRAMID OF NUMBERS USING FOR LOOPS 1 121 12321 1234321 VERTICALLY
 //    class Program
 //    {
 //        static void Main(string[] args)
@@ -98,9 +342,9 @@ namespace ConsoleApplication1
 //    }
 //}
 
-    /// <summary>
-    /// EXAMPLE OF RAISING USER INPUT # TO THE THIRD POWER AND ASKING IF CONTINUE
-    /// </summary>
+/// <summary>
+/// EXAMPLE OF RAISING USER INPUT # TO THE THIRD POWER AND ASKING IF CONTINUE
+/// </summary>
 //    class Program
 //    {
 //        static void Main(string[] args)
@@ -147,31 +391,31 @@ namespace ConsoleApplication1
 //    }
 //}
 
-    /// <summary>
-    /// EXAMPLE OF FOR NESTED FOR LOOPS WRITING 122333444455555 (BUT THEY SHOW VERTICALLY///
-    /// </summary>
-    //class program
-    //{
-    //    static void Main(string[] args)
-    //    {
-    //        int i, j;
+/// <summary>
+/// EXAMPLE OF FOR NESTED FOR LOOPS WRITING 122333444455555 (BUT THEY SHOW VERTICALLY///
+/// </summary>
+//class program
+//{
+//    static void Main(string[] args)
+//    {
+//        int i, j;
 
-    //        for (i = 1; i <= 5; i++)
-    //        {
-    //            Console.WriteLine();
-    //            for (j = 1; j <= i; j++)
-    //            {
-    //                Console.Write(i);
-    //            }
-    //        }
-    //        Console.ReadLine();
-    //    }
+//        for (i = 1; i <= 5; i++)
+//        {
+//            Console.WriteLine();
+//            for (j = 1; j <= i; j++)
+//            {
+//                Console.Write(i);
+//            }
+//        }
+//        Console.ReadLine();
+//    }
 
-    //}
 //}
-    /// <summary>
-    /// //EXAMPLE OF CREATING A TABLE OF MULTIPLICATION RESULTS FROM USER PROVIDED #
-    /// </summary>
+//}
+/// <summary>
+/// //EXAMPLE OF CREATING A TABLE OF MULTIPLICATION RESULTS FROM USER PROVIDED #
+/// </summary>
 //    class Program
 //    {
 //        static void Main(string[] args)
@@ -200,9 +444,9 @@ namespace ConsoleApplication1
 
 
 
-    /// <summary>
-    /// ///EXAMPLE OF WHILE(TRUE) LOOP. INFINITE LOOP UNTIL USER ENTERS SPECIAL CHARACTER
-    /// </summary>
+/// <summary>
+/// ///EXAMPLE OF WHILE(TRUE) LOOP. INFINITE LOOP UNTIL USER ENTERS SPECIAL CHARACTER
+/// </summary>
 //    class Program
 //    {
 //        static void Main(string[] args)
@@ -227,9 +471,9 @@ namespace ConsoleApplication1
 //}
 
 
-        /// <summary>
-        /// ///////Example of a struct///////////////////////
-        /// </summary>
+/// <summary>
+/// ///////Example of a struct///////////////////////
+/// </summary>
 //        struct Employee
 //        {
 //            public string eeName; //creating 3 different variables in single structure
@@ -266,7 +510,7 @@ namespace ConsoleApplication1
 //            Console.WriteLine("Employee 1 Name:\t{0}", name1.eeName);
 //            Console.WriteLine("\nEmployee 1 Salary:\t{0}", name1.eeSalary);
 //            Console.WriteLine("\nEmployee 1 Age:\t{0}", name1.eeAge);
-            
+
 //            Console.WriteLine("Hit enter to see next Employee information");
 //            Console.ReadLine();
 //            Console.Clear();
@@ -283,9 +527,9 @@ namespace ConsoleApplication1
 //}
 
 
-    /// <summary>
-    /// ///////////Example of enumerators////////////////
-    /// </summary>
+/// <summary>
+/// ///////////Example of enumerators////////////////
+/// </summary>
 //    public enum colorness
 //    {
 //        redFirstEnumerator,
@@ -312,7 +556,7 @@ namespace ConsoleApplication1
 //    }
 //}
 
-    //////////// CALLING 2 CLASSES AND USING CONTINUE AND BREAK //////////
+//////////// CALLING 2 CLASSES AND USING CONTINUE AND BREAK //////////
 //        static void Main(string[] args)
 //        {
 //            int num = 1, result;
@@ -323,7 +567,7 @@ namespace ConsoleApplication1
 //            result = a.adding(num);
 //            result = s.subtracting(result);
 //            Console.WriteLine(result);
-            
+
 //            Console.ReadLine();
 
 //            while (result != 15)
@@ -345,78 +589,78 @@ namespace ConsoleApplication1
 //    }
 //}
 
-    /// <summary>
-    /// CALCULATING PERCENTAGE VALUE FROM USER PROVIDED NUMBER
-    /// </summary>
-    //class Program
-    //{
-    //    static void Main(string[] args)
-    //    {
+/// <summary>
+/// CALCULATING PERCENTAGE VALUE FROM USER PROVIDED NUMBER
+/// </summary>
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
 
-    //        double result, num1;
-    //        int intAnswer;
+//        double result, num1;
+//        int intAnswer;
 
-    //    label:
+//    label:
 
-    //        Console.WriteLine("Please enter a number to calculate percentage value:  ");
-    //        num1 = Int32.Parse(Console.ReadLine());
-    //        num1 = num1 / 100;
-    //        Console.WriteLine("Here is the percentage form:  " + num1);
-    //        Console.WriteLine("Would you like to continue? 1 for yes or 2 for no");
-    //        intAnswer = Int32.Parse(Console.ReadLine());
-    //        if (intAnswer == 1)
-    //        {
-    //            goto label;
-    //        }
-    //        else if (intAnswer == 2)
-    //        {
-    //            Console.WriteLine("Thank you, come again");
-    //        }
-
-
+//        Console.WriteLine("Please enter a number to calculate percentage value:  ");
+//        num1 = Int32.Parse(Console.ReadLine());
+//        num1 = num1 / 100;
+//        Console.WriteLine("Here is the percentage form:  " + num1);
+//        Console.WriteLine("Would you like to continue? 1 for yes or 2 for no");
+//        intAnswer = Int32.Parse(Console.ReadLine());
+//        if (intAnswer == 1)
+//        {
+//            goto label;
+//        }
+//        else if (intAnswer == 2)
+//        {
+//            Console.WriteLine("Thank you, come again");
+//        }
 
 
-            ///// USING CLASS FROM ANOTHER PART IN PROJECT
-            //int result;
-            //int num1, num2;
-            //Console.WriteLine("Enter first value to add:\t");
-            //num1 = Int32.Parse(Console.ReadLine());
-            //Console.WriteLine("Enter second value:\t");
-            //num2 = Int32.Parse(Console.ReadLine());
-
-            //add a = new add();
-
-            //result = a.adding(num1, num2);
-            //Console.WriteLine(result);
-            //Console.WriteLine("Press Enter to exit");
-            //Console.ReadLine();
-            //////
-            
-            //////GRABBING VALUES FROM USER AND DISPLAYING THEM IN CONSOLE
-            ////cretaing integer type variable
-            //int pin, houseNumber;
-            //string name, city, street;
-            ////Displaying message
-            //Console.WriteLine("Please enter name:");
-            //name = Console.ReadLine();
-
-            //Console.WriteLine("Enter City:");
-            //city = Console.ReadLine();
-
-            //Console.WriteLine("Enter House #:");
-            //houseNumber = Int32.Parse(Console.ReadLine()); //need to convert int to string
-
-            //Console.WriteLine("Enter Street:");
-            //street = Console.ReadLine();
-
-            //Console.WriteLine("Enter PIN:");
-            //pin = Int32.Parse(Console.ReadLine()); //need to convert int to string
 
 
-            //Console.WriteLine("Name: {0} \t City: {1} \t House#: {2} \t Street: {3} \n PIN: {4} \n Press enter to exit", name, city, houseNumber, street, pin); //Output
+///// USING CLASS FROM ANOTHER PART IN PROJECT
+//int result;
+//int num1, num2;
+//Console.WriteLine("Enter first value to add:\t");
+//num1 = Int32.Parse(Console.ReadLine());
+//Console.WriteLine("Enter second value:\t");
+//num2 = Int32.Parse(Console.ReadLine());
 
-            //Console.ReadLine();
-            //////////////
+//add a = new add();
+
+//result = a.adding(num1, num2);
+//Console.WriteLine(result);
+//Console.WriteLine("Press Enter to exit");
+//Console.ReadLine();
+//////
+
+//////GRABBING VALUES FROM USER AND DISPLAYING THEM IN CONSOLE
+////cretaing integer type variable
+//int pin, houseNumber;
+//string name, city, street;
+////Displaying message
+//Console.WriteLine("Please enter name:");
+//name = Console.ReadLine();
+
+//Console.WriteLine("Enter City:");
+//city = Console.ReadLine();
+
+//Console.WriteLine("Enter House #:");
+//houseNumber = Int32.Parse(Console.ReadLine()); //need to convert int to string
+
+//Console.WriteLine("Enter Street:");
+//street = Console.ReadLine();
+
+//Console.WriteLine("Enter PIN:");
+//pin = Int32.Parse(Console.ReadLine()); //need to convert int to string
+
+
+//Console.WriteLine("Name: {0} \t City: {1} \t House#: {2} \t Street: {3} \n PIN: {4} \n Press enter to exit", name, city, houseNumber, street, pin); //Output
+
+//Console.ReadLine();
+//////////////
 //        }
 //    }
 //}
