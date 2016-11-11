@@ -13,8 +13,61 @@ namespace ConsoleApplication1
 
         }
     }
-
 }
+    /// <summary>
+    /// EXAMPLE OF A PYRAMID TOUGH ONE!!!!////
+    /// </summary>
+    //class Program
+    //{
+       
+       
+//        static void Main(string[] args) //learning moment...Get a good visual of what you are trying to program BEFORE trying to write code. I convinced myself the reverse triangle COULD
+//                                        // NOT contain a space for the first loop. BUT actually the first loop needed a space. Then ALL the different codes would have worked. :/
+//        {
+//            int intLayers = 9, intSpace, intNum, j;
+
+//            for (j = 1; j <= intLayers; j++) //always try to use variables in loops if possible like j in rest of program. NOT declare new variables. 
+//                                             //Overall loop that tells how many rows/layers deep to go
+//            {
+//                for (intSpace = 1; intSpace <= (intLayers - j); intSpace++) // neat little trick to enter in spaces
+//                {
+//                    Console.Write(" ");
+//                }
+//                for (intNum = 1; intNum <= j; intNum++) //increasing #
+//                {
+//                    Console.Write(intNum);
+//                }
+//                for (intNum = (intNum - 2); intNum >= 1; intNum--) // decreasing #
+//                {
+//                    Console.Write(intNum);
+//                }
+//                Console.WriteLine();
+//            }
+           
+//            //reversing the triangle to create a pyramid
+
+//            for (j = (intLayers - 1); j >= 1; j--)
+//            {
+//                for (intSpace = 0; intSpace < (intLayers - j); intSpace++) // neat little trick to enter in spaces
+//                {
+//                    Console.Write(" ");
+//                }
+//                for (intNum = 1; intNum <= j; intNum++) //increasing #
+//                {
+//                    Console.Write(intNum);
+//                }
+//                for (intNum = (intNum - 2); intNum >= 1; intNum--) // decreasing #
+//                {
+//                    Console.Write(intNum);
+//                }
+//                Console.WriteLine();
+//            }
+//            Console.ReadLine();
+//        }
+//    }
+    
+
+//}
     // EXAMPLE OF MAKING A PYRAMID OF NUMBERS USING FOR LOOPS 1 121 12321 1234321 VERTICALLY
 //    class Program
 //    {
