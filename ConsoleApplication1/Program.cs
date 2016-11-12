@@ -12,8 +12,120 @@ namespace ConsoleApplication1
     }
 }
     /// <summary>
-    /// EXAMPLE OF CALLING MULTIPLE METHODS LOCATED IN A DIFFERENT CLASS
+    /// EXAMPLE OF SENDING 2 VARIABLES AND RETURNING 4 VARIABLES USING OUT
     /// </summary>
+//    class Program
+//    {
+//        static void intInput(int number1, int number2, out int added, out int subtracted, out int multiplied, out float divised)
+//        {
+//            added = number1 + number2;
+//            subtracted = number1 - number2;
+//            multiplied = number1 * number2;
+//            divised = (float)number1 / number2; //don't forget the float here
+
+//        }
+//        static void Main(string[] args)
+//        {
+//            int number1, number2, added, subtracted, multiplied;
+//            float divised;
+//            Console.Write("Please enter first number: ");
+//            number1 = Int32.Parse(Console.ReadLine());
+//            Console.Write("Please enter second number: ");
+//            number2 = Int32.Parse(Console.ReadLine());
+
+//            Program.intInput(number1, number2, out added, out subtracted, out multiplied, out divised);
+//            Console.WriteLine("\n\n{0} + {1} = {2}", number1, number2, added);
+//            Console.WriteLine("{0} - {1} = {2}", number1, number2, subtracted);
+//            Console.WriteLine("{0} * {1} = {2}", number1, number2, multiplied);
+//            Console.WriteLine("{0} / {1} = {2}", number1, number2, divised);
+
+//            Console.ReadLine();
+//        }
+
+//    }
+    
+        
+   
+//}
+    /// <summary>
+/// EXAMPLE OF PASSING BY REFERENCE AND VALUE
+/// </summary>
+//    class Program
+//    {
+//        public int addClass(int intNumber2)
+//        {
+//            intNumber2 = intNumber2 * 2;
+//            return (intNumber2);
+//        }
+//        static int Calculate(ref int intNumber)
+//        {
+//            intNumber = intNumber + 20;
+//            return (intNumber);
+//        }
+//        static void Main(string[] args)
+//        {
+//            int intPassingVariable = 50;
+//            Console.WriteLine("Variable before referencing: " + intPassingVariable);
+//            Program.Calculate(ref intPassingVariable); // not assigning variable here, simply pointing to the end result and the variable is 
+//                                                       //changed after this line, but original variable remains unchanged
+//            Console.WriteLine("Result after referencing: " + intPassingVariable);
+//            Program prg = new Program();
+//            intPassingVariable =  prg.addClass(intPassingVariable);
+//            Console.WriteLine("Oh but wait, this is a variable being passed by value. The variable changed: " + intPassingVariable);
+//            Console.ReadLine();
+//        }
+//    }
+//}
+
+/// <summary>
+/// EXAMPLE OF PASSING VALUE VIA REFERENCE
+/// </summary>
+//    class Program
+//    {
+
+//        static int Calculate(ref int intNumber)
+//        {
+//            intNumber = intNumber + 20;
+//            return (intNumber);
+//        }
+//        static void Main(string[] args)
+//        {
+//            int intPassingVariable = 50;
+//            Console.WriteLine("Variable before referencing: " + intPassingVariable);
+//            Program.Calculate(ref intPassingVariable); // not assigning variable here, simply pointing to the end result and the variable is 
+//                                                        //changed after this line, but original variable remains unchanged
+//            Console.WriteLine("Result after referencing: " + intPassingVariable);
+//            Console.ReadLine();
+//        }
+//    }
+//}
+/// <summary>
+/// EXAMPLE OF PARAMETER BEING PASSED TO METHOD THAN RETURNING
+/// </summary>
+//    class Program
+//    {
+//        int intNum = 5, intResult;
+//        public int calculate(int Num) // returns integer value b/c declared method int
+//        {
+
+//            intNum = intNum + 5;
+//            return (intNum);
+//        }
+
+//        static void Main(string[] args)
+//        {
+//            Program prg = new Program();
+//            prg.intResult = prg.calculate(5);
+//            Console.WriteLine("Result: " + prg.intResult);
+//            Console.ReadLine();
+//        }
+
+
+//    }
+//}
+/// <summary>
+/// EXAMPLE OF CALLING MULTIPLE METHODS LOCATED IN A DIFFERENT CLASS
+/// </summary>
 //    class Calculate
 //    {
 //        public int intNum1, intNum2, intResult;
@@ -81,15 +193,15 @@ namespace ConsoleApplication1
 //                Console.WriteLine("You did not enter the correct operator I told you too! Goodbye!");
 //                Console.ReadLine();
 //            }
-                
-                
+
+
 
 //        }
 //    }
 //}
-    /// <summary>
-    /// EXAMPLE OF CALLING A STATIC CLASS BY ONLY WRITING CLASSNAME.METHODNAME(). WITHOUT CREATING AN OBJECT
-    /// </summary>
+/// <summary>
+/// EXAMPLE OF CALLING A STATIC CLASS BY ONLY WRITING CLASSNAME.METHODNAME(). WITHOUT CREATING AN OBJECT
+/// </summary>
 //    class Calculate
 //    {
 //        public static void add()
@@ -107,16 +219,16 @@ namespace ConsoleApplication1
 //    {
 //        static void Main(string[] args)
 //        {
-//            Calculate.add();// becuase getIt class is static I can access it by writing only classname.methodname(). If it wasn't a static class I would need to create an object.
+//            Calculate.add();// becuase add class is static I can access it by writing only classname.methodname(). If it wasn't a static class I would need to create an object.
 //                            //                                // Example of object if the class was not static: Variable var = new Variable();
 //            Console.ReadLine();
 //        }
 //    }
 //}
-   
-    /// <summary>
-    /// EXAMPLE OF ACCESSING PRIVATE VARIABLE USING GET SET PROPERTY...FORGET THE CLASS NAMES, I CHANGED THE CODE AROUND A BIT
-    /// </summary>
+
+/// <summary>
+/// EXAMPLE OF ACCESSING PRIVATE VARIABLE USING GET SET PROPERTY...FORGET THE CLASS NAMES, I CHANGED THE CODE AROUND A BIT
+/// </summary>
 //    class Program
 //    {
 //        static void Main(string[] args)
