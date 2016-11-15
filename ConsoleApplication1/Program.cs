@@ -12,6 +12,31 @@ namespace ConsoleApplication1
     }
 }
     /// <summary>
+    /// EXAMPLE OF STORING USER ENTERED VAIRABLES INTO AN ARRAY THAN DISPLAYING DATA
+    /// </summary>
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int i;
+//            int[] arr = new int[5];
+//            for (i = 0; i <= 4; i++)
+//            {
+                
+//                Console.Write("Please enter " + i + " out of 5 numbers that will be numerically sorted: ");
+//                arr[i] = Int32.Parse(Console.ReadLine());
+//            }
+//            Console.WriteLine("Here are your numbers in numerical order:");
+//            Array.Sort(arr);
+//            foreach (int j in arr)
+//            {
+//                Console.WriteLine(j);
+//            }
+//            Console.ReadLine();
+//        }
+//    }
+//}
+    /// <summary>
     /// EXAMPLE OF SENDING 2 VARIABLES AND RETURNING 4 VARIABLES USING OUT
     /// </summary>
 //    class Program
