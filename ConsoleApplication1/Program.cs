@@ -8,7 +8,44 @@ namespace ConsoleApplication1
 {
     class Program
     {
-
+        static void Main(string[] args)
+        {
+            int i, j;
+            string[,] Objects = new string[3, 3]; //this array has 3 rows and each row contains three columns. ALWAYS remember comma to declare multi-dimensial array.
+            string[,] ObjectsTwo = new string[3, 3]; //making second array to copy first one from
+            for (i=0; i< 3; i++) //each row can be accessed using outer loop and each column of rows can be accessed using nested loop inside the outer loop
+            {
+                for (j=0; j<3; j++)
+                {
+                    Console.Write("Please enter 9 objects ANY objects you can think of: ");
+                    Objects[i, j] = Console.ReadLine();
+                }
+            }
+            Console.WriteLine("Press enter to see all the objects you entered. These objects were stored into an array then accessed again by pressing enter...");
+            Console.ReadLine();
+            for (i=0;i<3; i++)
+            {
+                for (j=0; j<3; j++)
+                {
+                    Console.WriteLine("=========================");
+                    Console.WriteLine(Objects[i, j]);
+                    Console.WriteLine("=========================");
+                }
+            }
+            Console.ReadLine();
+            Array.Copy(Objects, ObjectsTwo, 6); //the last number here specifies how many indexes is copied over.
+            Console.WriteLine("Here is copying first array and putting elements into second array: ");
+            for (i = 0; i < 3; i++)
+            {
+                for (j = 0; j < 3; j++)
+                {
+                    
+                    Console.WriteLine(ObjectsTwo[i, j]);
+                    
+                }
+            }
+            Console.ReadLine();
+        }
     }
 }
     /// <summary>
