@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ConsoleApplication1
 {
@@ -10,44 +11,149 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            int i, j;
-            string[,] Objects = new string[3, 3]; //this array has 3 rows and each row contains three columns. ALWAYS remember comma to declare multi-dimensial array.
-            string[,] ObjectsTwo = new string[3, 3]; //making second array to copy first one from
-            for (i=0; i< 3; i++) //each row can be accessed using outer loop and each column of rows can be accessed using nested loop inside the outer loop
-            {
-                for (j=0; j<3; j++)
-                {
-                    Console.Write("Please enter 9 objects ANY objects you can think of: ");
-                    Objects[i, j] = Console.ReadLine();
-                }
-            }
-            Console.WriteLine("Press enter to see all the objects you entered. These objects were stored into an array then accessed again by pressing enter...");
-            Console.ReadLine();
-            for (i=0;i<3; i++)
-            {
-                for (j=0; j<3; j++)
-                {
-                    Console.WriteLine("=========================");
-                    Console.WriteLine(Objects[i, j]);
-                    Console.WriteLine("=========================");
-                }
-            }
-            Console.ReadLine();
-            Array.Copy(Objects, ObjectsTwo, 6); //the last number here specifies how many indexes is copied over.
-            Console.WriteLine("Here is copying first array and putting elements into second array: ");
-            for (i = 0; i < 3; i++)
-            {
-                for (j = 0; j < 3; j++)
-                {
-                    
-                    Console.WriteLine(ObjectsTwo[i, j]);
-                    
-                }
-            }
-            Console.ReadLine();
+            FileStream fs = new FileStream("C:\\Coding\\C#\\myFirstC#File.txt", FileMode.Create);
+            fs.Close();
+            Console.WriteLine("File has been created and the Path is C:\\Coding\\C#\\myFirstC#File.txt");
+            Console.ReadKey();
         }
     }
 }
+    /// <summary>
+    /// EXAMPLE OF CONSTRUCTOR OVERLOADING AND USE OF DESTRUCTOR
+    /// </summary>
+//    class ConstructorFun
+//    {
+//        public ConstructorFun()
+//        {
+//            Console.WriteLine("Hello I am the default constructor");
+//        }
+//        public ConstructorFun(string message)
+//        {
+//            Console.WriteLine(message);
+//        }
+//        public ConstructorFun(int intNum1, int intNum2)
+//        {
+//            int result;
+//            result = intNum1 + intNum2;
+//            Console.WriteLine("Adding {0} + {1} = {2}", intNum1, intNum2, result);
+//        }
+//        ~ConstructorFun()
+//        {
+//            Console.WriteLine("This is the destructor clearing memory");
+//            Console.ReadLine();
+//        }
+//    }
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            ConstructorFun CF = new ConstructorFun();
+//            ConstructorFun CF2 = new ConstructorFun("Hello I am the overloaded constructor");
+//            ConstructorFun CF3 = new ConstructorFun(50, 5);
+//            Console.ReadLine();
+//        }
+//    }
+//}
+    /// <summary>
+    /// EXAMPLE OF USING SYSTEM ERROR EXCEPTION INDEXOUTOFRANGE WHEN FOR LOOP GOES BEYOND ARRAY AMOUNT
+    /// </summary>
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            string[] list = new string[5];
+//            list[0] = "Sunday";
+//            list[1] = "Monday";
+//            list[2] = "Tuesday";
+//            list[3] = "Wednesday";
+//            list[4] = "Thursday";
+
+//            try
+//            {
+//                for (int i = 0; i <= 5; i++)
+//                {
+//                    Console.WriteLine(list[i].ToString());
+//                    Console.ReadLine();
+//                }
+              
+//            }
+            
+//            catch(IndexOutOfRangeException ieo)
+//            {
+//                Console.WriteLine(ieo.Message);
+//            }
+//            Console.ReadLine();
+
+//        }
+//    }
+//}
+    /// <summary>
+    /// EXAMPLE OF USING SYSTEM EXCEPTION NULLREFERENCEEXCEPTION TRY CATCH
+    /// </summary>
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            string text = null;
+//            try
+//            {
+//                int length = text.Length;
+//                Console.WriteLine(length);
+//                Console.ReadLine();
+//            }
+//            catch (NullReferenceException nex)
+//            {
+//                Console.WriteLine(nex.Message);
+//            }
+//            Console.ReadLine();
+//        }
+//    }
+//}
+    /// <summary>
+    /// EXAMPLE OF USER STORING STRINGS INTO MULTI-DIMENSIONAL ARRAY, THEN COPYING THAT ARRAY AND DISPLAYING IT
+    /// </summary>
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int i, j;
+//            string[,] Objects = new string[3, 3]; //this array has 3 rows and each row contains three columns. ALWAYS remember comma to declare multi-dimensial array.
+//            string[,] ObjectsTwo = new string[3, 3]; //making second array to copy first one from
+//            for (i=0; i< 3; i++) //each row can be accessed using outer loop and each column of rows can be accessed using nested loop inside the outer loop
+//            {
+//                for (j=0; j<3; j++)
+//                {
+//                    Console.Write("Please enter 9 objects ANY objects you can think of: ");
+//                    Objects[i, j] = Console.ReadLine();
+//                }
+//            }
+//            Console.WriteLine("Press enter to see all the objects you entered. These objects were stored into an array then accessed again by pressing enter...");
+//            Console.ReadLine();
+//            for (i=0;i<3; i++)
+//            {
+//                for (j=0; j<3; j++)
+//                {
+//                    Console.WriteLine("=========================");
+//                    Console.WriteLine(Objects[i, j]);
+//                    Console.WriteLine("=========================");
+//                }
+//            }
+//            Console.ReadLine();
+//            Array.Copy(Objects, ObjectsTwo, 6); //the last number here specifies how many indexes is copied over.
+//            Console.WriteLine("Here is copying first array and putting elements into second array: ");
+//            for (i = 0; i < 3; i++)
+//            {
+//                for (j = 0; j < 3; j++)
+//                {
+                    
+//                    Console.WriteLine(ObjectsTwo[i, j]);
+                    
+//                }
+//            }
+//            Console.ReadLine();
+//        }
+//    }
+//}
     /// <summary>
     /// EXAMPLE OF STORING USER ENTERED VAIRABLES INTO AN ARRAY THAN DISPLAYING DATA
     /// </summary>
