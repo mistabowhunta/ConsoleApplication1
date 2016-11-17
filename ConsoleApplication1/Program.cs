@@ -11,16 +11,34 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            FileStream fs = new FileStream("C:\\Coding\\C#\\myFirstC#File.txt", FileMode.Create);
-            fs.Close();
-            Console.WriteLine("File has been created and the Path is C:\\Coding\\C#\\myFirstC#File.txt");
-            Console.ReadKey();
+            string data;
+            FileStream fsSource = new FileStream("C:\\Users\\inason\\Desktop\\Coding\\C#\\myFirstC#File.txt", FileMode.Open, FileAccess.Read);
+            using (StreamReader sr = new StreamReader(fsSource)) //using streamreader class to read the file
+            {
+                data = sr.ReadToEnd();
+            }
+            Console.WriteLine(data);
+            Console.ReadLine();
         }
     }
 }
-    /// <summary>
-    /// EXAMPLE OF CONSTRUCTOR OVERLOADING AND USE OF DESTRUCTOR
-    /// </summary>
+    //EXAMPLE OF FILE HANDLING OPENING (OR CREATING) TEXT FILE AND WRITING DATA IN IT.
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            FileStream fs = new FileStream("C:\\Users\\inason\\Desktop\\Coding\\C#\\myFirstC#File.txt", FileMode.Append);
+//            byte[] bdata = Encoding.Default.GetBytes("Hello File Handling!");     // encoding a string into bytes then storing in array    
+//            fs.Write(bdata, 0, bdata.Length); // tells how to write data: from what variable (in this case an array), starting from what index offset, how many elements in array
+//            fs.Close();
+//            Console.WriteLine("Successfully saved file with data : Hello File Handling!");
+//            Console.ReadKey();
+//        }
+//    }
+//}
+/// <summary> 
+/// EXAMPLE OF CONSTRUCTOR OVERLOADING AND USE OF DESTRUCTOR
+/// </summary>
 //    class ConstructorFun
 //    {
 //        public ConstructorFun()
@@ -54,9 +72,9 @@ namespace ConsoleApplication1
 //        }
 //    }
 //}
-    /// <summary>
-    /// EXAMPLE OF USING SYSTEM ERROR EXCEPTION INDEXOUTOFRANGE WHEN FOR LOOP GOES BEYOND ARRAY AMOUNT
-    /// </summary>
+/// <summary>
+/// EXAMPLE OF USING SYSTEM ERROR EXCEPTION INDEXOUTOFRANGE WHEN FOR LOOP GOES BEYOND ARRAY AMOUNT
+/// </summary>
 //    class Program
 //    {
 //        static void Main(string[] args)
@@ -75,9 +93,9 @@ namespace ConsoleApplication1
 //                    Console.WriteLine(list[i].ToString());
 //                    Console.ReadLine();
 //                }
-              
+
 //            }
-            
+
 //            catch(IndexOutOfRangeException ieo)
 //            {
 //                Console.WriteLine(ieo.Message);
@@ -87,9 +105,9 @@ namespace ConsoleApplication1
 //        }
 //    }
 //}
-    /// <summary>
-    /// EXAMPLE OF USING SYSTEM EXCEPTION NULLREFERENCEEXCEPTION TRY CATCH
-    /// </summary>
+/// <summary>
+/// EXAMPLE OF USING SYSTEM EXCEPTION NULLREFERENCEEXCEPTION TRY CATCH
+/// </summary>
 //    class Program
 //    {
 //        static void Main(string[] args)
@@ -109,9 +127,9 @@ namespace ConsoleApplication1
 //        }
 //    }
 //}
-    /// <summary>
-    /// EXAMPLE OF USER STORING STRINGS INTO MULTI-DIMENSIONAL ARRAY, THEN COPYING THAT ARRAY AND DISPLAYING IT
-    /// </summary>
+/// <summary>
+/// EXAMPLE OF USER STORING STRINGS INTO MULTI-DIMENSIONAL ARRAY, THEN COPYING THAT ARRAY AND DISPLAYING IT
+/// </summary>
 //    class Program
 //    {
 //        static void Main(string[] args)
@@ -145,18 +163,18 @@ namespace ConsoleApplication1
 //            {
 //                for (j = 0; j < 3; j++)
 //                {
-                    
+
 //                    Console.WriteLine(ObjectsTwo[i, j]);
-                    
+
 //                }
 //            }
 //            Console.ReadLine();
 //        }
 //    }
 //}
-    /// <summary>
-    /// EXAMPLE OF STORING USER ENTERED VAIRABLES INTO AN ARRAY THAN DISPLAYING DATA
-    /// </summary>
+/// <summary>
+/// EXAMPLE OF STORING USER ENTERED VAIRABLES INTO AN ARRAY THAN DISPLAYING DATA
+/// </summary>
 //    class Program
 //    {
 //        static void Main(string[] args)
@@ -165,7 +183,7 @@ namespace ConsoleApplication1
 //            int[] arr = new int[5];
 //            for (i = 0; i <= 4; i++)
 //            {
-                
+
 //                Console.Write("Please enter " + i + " out of 5 numbers that will be numerically sorted: ");
 //                arr[i] = Int32.Parse(Console.ReadLine());
 //            }
@@ -179,9 +197,9 @@ namespace ConsoleApplication1
 //        }
 //    }
 //}
-    /// <summary>
-    /// EXAMPLE OF SENDING 2 VARIABLES AND RETURNING 4 VARIABLES USING OUT
-    /// </summary>
+/// <summary>
+/// EXAMPLE OF SENDING 2 VARIABLES AND RETURNING 4 VARIABLES USING OUT
+/// </summary>
 //    class Program
 //    {
 //        static void intInput(int number1, int number2, out int added, out int subtracted, out int multiplied, out float divised)
@@ -211,11 +229,11 @@ namespace ConsoleApplication1
 //        }
 
 //    }
-    
-        
-   
+
+
+
 //}
-    /// <summary>
+/// <summary>
 /// EXAMPLE OF PASSING BY REFERENCE AND VALUE
 /// </summary>
 //    class Program
