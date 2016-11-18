@@ -12,13 +12,13 @@ namespace ConsoleApplication1
         public static string strName, strCity, strSubject, strData;
         public static int intAge, intChoice;
         public static string pathDir = @"C:\\Coding\\C#\\Students";
-        public  WriteData(string name, string city, string subject, int age, string pathdir)
+        public void writingData() //(string name, string city, string subject, int age, string pathdir) //after finish refactoring look at NOT using static variables and instead using local variables
         {
-            strName = name;
-            strCity = city;
-            strSubject = subject;
-            intAge = age;
-            pathDir = pathdir;
+            //strName = name;
+            //strCity = city;
+            //strSubject = subject;
+            //intAge = age;
+            //pathDir = pathdir;
 
             //Adding user's data into newly created file
             Console.Write("Enter your age: ");
@@ -39,129 +39,125 @@ namespace ConsoleApplication1
                 Console.WriteLine("Thank you for the information, it has been saved into your file.");
             }
         }
-        class CreateDirectory
+        class ReadData
         {
-            DirectoryInfo dir = new DirectoryInfo(pathDir);
+            public void readingData()
+            {
+                FileStream fsSource = new FileStream(pathDir + "\\" + strName + ".txt", FileMode.Open, FileAccess.Read);
+                using (StreamReader sr = new StreamReader(fsSource))
+                {
+                    strData = sr.ReadToEnd();
+                }
+                Console.WriteLine(strData);
+                Console.ReadLine();
+            }
+        }
+        class CreateDirectory // next time make sure the classes go in chronological order. this should be the first class shown
+        {
+            public void creatingDir()
+            {
+                DirectoryInfo dir = new DirectoryInfo(pathDir);
+                //Checking if directory already exists
+                try
+                {
+                    if (dir.Exists)
+                    {
+                        Console.WriteLine("{0} Directory already exists", pathDir);
+                        Console.WriteLine("Directory Name : " + dir.Name);
+                        Console.WriteLine("Path : " + dir.FullName);
+                        Console.WriteLine("Directory is created on : " + dir.CreationTime);
+                        Console.WriteLine("Directory is Last Accessed on " + dir.LastAccessTime);
+                    }
+                    else
+                    {
+                        dir.Create();
+                        Console.WriteLine(pathDir);
+                        Console.WriteLine("Directory created successfully!");
+                    }
+                }
+                catch (DirectoryNotFoundException d)
+                {
+                    Console.WriteLine("Exception raised : " + d.Message);
+                }
+                //Asking for users name which will be the name of the file that goes into the newly created directory
+                Console.WriteLine();
+                Console.WriteLine("What is your name? A text file will be created in the Students folder located with your name in: " + pathDir);
+                strName = Console.ReadLine();
+                Console.WriteLine();
 
+                //Create file
+                FileStream fs = new FileStream(pathDir + "\\" + strName + ".txt", FileMode.Create);
+                fs.Close(); //need to close filestream so can write data using streamwriter
+                Console.WriteLine(strName + " file has been created in: " + pathDir);
+                Console.WriteLine("Press enter to add required information into your file...");
+                Console.ReadLine();
+            }
 
         }
-
-
-
-        class Program
-    {
-        
-        static void Main(string[] args)
+        class DirInfo
         {
-            //string strName, strCity, strSubject, strData;
-            //int intAge, intChoice;
-            //string pathDir = @"C:\\Coding\\C#\\Students"; 
-           // DirectoryInfo dir = new DirectoryInfo(pathDir);
-            //checking if directory already exists
-            try
+            public void displayDirInfo()
             {
-                if (dir.Exists)
-                {
-                    Console.WriteLine("{0} Directory already exists", pathDir);
-                    Console.WriteLine("Directory Name : " + dir.Name);
-                    Console.WriteLine("Path : " + dir.FullName);
-                    Console.WriteLine("Directory is created on : " + dir.CreationTime);
-                    Console.WriteLine("Directory is Last Accessed on " + dir.LastAccessTime);
-                }
-                else
-                {
-                    dir.Create();
-                    Console.WriteLine(pathDir);
-                    Console.WriteLine("Directory created successfully!");
-                }
+                DirectoryInfo dirInfo = new DirectoryInfo(pathDir);
+                Console.WriteLine("{0} Directory exists", pathDir);
+                Console.WriteLine("Directory Name : " + dirInfo.Name);
+                Console.WriteLine("Path : " + dirInfo.FullName);
+                Console.WriteLine("Directory is created on : " + dirInfo.CreationTime);
+                Console.WriteLine("Directory is Last Accessed on " + dirInfo.LastAccessTime);
+                Console.WriteLine("Press enter to exit...");
+                Console.ReadLine();
             }
-            catch (DirectoryNotFoundException d)
+        }
+        class Program
+        {
+
+            static void Main(string[] args)
             {
-                Console.WriteLine("Exception raised : " + d.Message);
-            }
-            //Asking for users name which will be the name of the file that goes into the newly created directory
-            Console.WriteLine();
-            Console.WriteLine("What is your name? A text file will be created in the Students folder located with your name in: " + pathDir);
-            strName = Console.ReadLine();
-            Console.WriteLine();
+                //Create folder that the student's file will go into
+                CreateDirectory cd = new CreateDirectory();
+                cd.creatingDir();
+                //initializing variables with user's input and writing to a text file
+                WriteData wd = new WriteData();
+                wd.writingData();
+                
+                Console.WriteLine("What would you like to do next?");
+                Console.WriteLine();
+                Console.WriteLine("Press 1 to view saved file");
+                Console.WriteLine("Press 2 to view directory information");
+                Console.WriteLine("Press any other key to exit...");
 
-            //Create file
-            FileStream fs = new FileStream(pathDir + "\\" + strName + ".txt", FileMode.Create);
-            fs.Close(); //need to close filestream so can write data using streamwriter
-            Console.WriteLine(strName + " file has been created in: " + pathDir);
-            Console.WriteLine("Press enter to add required information into your file...");
-            Console.ReadLine();
-
-            ////Adding user's data into newly created file
-            //Console.Write("Enter your age: ");
-            //intAge = Int32.Parse(Console.ReadLine());
-            //Console.Write("Enter your city: ");
-            //strCity = Console.ReadLine();
-            //Console.Write("Enter your subject of study: ");
-            //strSubject = Console.ReadLine();
-
-            //using (StreamWriter sw = new StreamWriter(pathDir + "\\" + strName + ".txt"))
-            //{
-            //    sw.WriteLine("Here is {0}'s information:", strName);
-            //    sw.WriteLine();
-            //    sw.WriteLine("Name: {0}", strName);
-            //    sw.WriteLine("Age: {0}", intAge);
-            //    sw.WriteLine("City: {0}", strCity);
-            //    sw.WriteLine("Subject: {0}", strSubject);
-            //}
-
-            //Console.WriteLine("Thank you for the information, it has been saved into your file.");
-
-
-            label: // in case user enters invalid input they will be brought back here
-
-            Console.WriteLine("What would you like to do next?");
-            Console.WriteLine();
-            Console.WriteLine("Press 1 to view saved file");
-            Console.WriteLine("Press 2 to view directory information");
-            Console.WriteLine("Press any other key to exit...");
-
-            try
-            {
-                intChoice = Int32.Parse(Console.ReadLine());
-                if (intChoice == 1)
+                try
                 {
-                    FileStream fsSource = new FileStream(pathDir + "\\" + strName + ".txt", FileMode.Open, FileAccess.Read);
-                    using (StreamReader sr = new StreamReader(fsSource))
+                    intChoice = Int32.Parse(Console.ReadLine());
+                    if (intChoice == 1)
                     {
-                        strData = sr.ReadToEnd();
+                        //Reading data in students file
+                        ReadData rd = new ReadData();
+                        rd.readingData();
                     }
-                    Console.WriteLine(strData);
-                    Console.ReadLine();
+                    else if (intChoice == 2)
+                    {
+                        //displaying directory information
+                        DirInfo di = new DirInfo();
+                        di.displayDirInfo();
+                    }
+                    else
+                    {
+                        Console.WriteLine("GoodBye! Press Enter");
+                        Console.ReadLine();
+                    }
                 }
-                else if (intChoice == 2)
+                catch (FormatException fex)
                 {
-                    DirectoryInfo dirInfo = new DirectoryInfo(pathDir);
-                    Console.WriteLine("{0} Directory exists", pathDir);
-                    Console.WriteLine("Directory Name : " + dirInfo.Name);
-                    Console.WriteLine("Path : " + dirInfo.FullName);
-                    Console.WriteLine("Directory is created on : " + dirInfo.CreationTime);
-                    Console.WriteLine("Directory is Last Accessed on " + dirInfo.LastAccessTime);
-                    Console.WriteLine("Press enter to exit...");
-                    Console.ReadLine();
+                    Console.WriteLine("Invalid Input (just testing");
+                    Console.WriteLine("More Details about Error: \n\n" + fex.ToString() + "\n\n");
+                   
 
                 }
-                else
-                {
-                    Console.WriteLine("GoodBye! Press Enter");
-                    Console.ReadLine();
-                }
-            }
-            catch (FormatException fex)
-            {
-                Console.WriteLine("Invalid Input");
-                Console.WriteLine("More Details about Error: \n\n" + fex.ToString() + "\n\n");
-                goto label;
+
+
 
             }
-           
-            
-
         }
     }
 }
