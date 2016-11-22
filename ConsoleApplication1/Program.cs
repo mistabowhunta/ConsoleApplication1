@@ -7,11 +7,110 @@ using System.IO;
 
 namespace ConsoleApplication1
 {
-    class Program
+    class PrintMe : Item
     {
+        //public void DisplayMe(string name, string price, string processor, string ram, string hardDrive)
+        public void DisplayMe()
+        {
+            //strName = name;
+            //strPrice = price;
+            //strProcessor = processor;
+            //strRam = ram;
+            //strHardDrive = hardDrive;
+            Console.WriteLine("*******************");
+            Console.WriteLine("Name: " + strName);
+            Console.WriteLine("Price: " + strPrice);
+            Console.WriteLine("Processor: " + processor);
+            Console.WriteLine("Ram: " + ram);
+            Console.WriteLine("Hard Drive: " + hardDrive);
+            Console.WriteLine("*******************");
+        }
+    }
 
+    class Item
+        {
+            public void Dell()
+            {
+                const string strName = "Isaac";
+                const string strPrice = "$7000";
+                const string strProcessor = "i7";
+                const string strRam = "5GB";
+                const string strHardDrive = "1TB";
+                
+            }
+           
+
+        }
+    
+    class Program 
+    {
+        static void Main(string[] args)
+        {
+            PrintMe Dell = new PrintMe();
+            Dell.DisplayMe();
+            
+        }
     }
 }
+    /// <summary>
+    /// EXAMPLE OF INHERITANCE
+    /// </summary>
+//    class Car: CarDetails
+//    {
+//        //calling base class constructor
+//        public Car(string CarName) : base(CarName)
+//        {
+//        }
+//        public void Color(string color)
+//        {
+//            Console.WriteLine("Color of the car is " + color);
+//        }
+        
+//    }
+//    class CarDetails
+//    {
+//        public CarDetails(string CarName)
+//        {
+//            Console.WriteLine("This is a " + CarName);
+//        }
+//        public void Engine()
+//        {
+//            Console.WriteLine("This has a V6");
+//        }
+//        public void Engine2()
+//        {
+//            Console.WriteLine("This has a V8");
+//        }
+//        public void Engine3()
+//        {
+//            Console.WriteLine("This has a V10!!!");
+//        }
+//        public void SpeedFast()
+//        {
+//            Console.WriteLine("This car is FAST!");
+//        }
+//        public void SpeedSlow()
+//        {
+//            Console.WriteLine("This car is not so fast");
+//        }
+//    }
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Car Ford = new Car("Ford");
+//            Ford.Engine();
+//            Ford.SpeedSlow();
+//            Ford.Color("Blue");
+//            Console.Read();
+//            Console.WriteLine("---------**------------");
+//            Car fordTruck = new Car("Ford Truck");
+//            fordTruck.Engine3();
+//            fordTruck.Color("Red");
+//            Console.ReadLine();
+//        }
+//    }
+//}
     /// <summary>
     /// EXAMPLE OF ACCESSING PRIVATE VARIABLE IN BASE CLASS
     /// </summary>
