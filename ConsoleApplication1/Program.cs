@@ -20,27 +20,27 @@ namespace ConsoleApplication1
             Console.WriteLine("*******************");
             Console.WriteLine("Name: " + strName);
             Console.WriteLine("Price: " + strPrice);
-            Console.WriteLine("Processor: " + processor);
-            Console.WriteLine("Ram: " + ram);
-            Console.WriteLine("Hard Drive: " + hardDrive);
+            Console.WriteLine("Processor: " + strProcessor);
+            Console.WriteLine("Ram: " + strRam);
+            Console.WriteLine("Hard Drive: " + strHardDrive);
             Console.WriteLine("*******************");
+            public override void newItem()
+            {
+            //enter something here
+            }
         }
     }
 
-    class Item
+    abstract class Item
         {
-            public void Dell()
-            {
-                const string strName = "Isaac";
-                const string strPrice = "$7000";
-                const string strProcessor = "i7";
-                const string strRam = "5GB";
-                const string strHardDrive = "1TB";
-                
-            }
-           
-
-        }
+            
+            public const string strName = "Dell";
+            public const string strPrice = "$7000";
+            public const string strProcessor = "i7";
+            public const string strRam = "5GB";
+            public const string strHardDrive = "1TB";
+            public abstract void newItem();
+         }
     
     class Program 
     {
@@ -48,6 +48,7 @@ namespace ConsoleApplication1
         {
             PrintMe Dell = new PrintMe();
             Dell.DisplayMe();
+            Console.ReadLine();
             
         }
     }
