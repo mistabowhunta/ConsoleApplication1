@@ -7,56 +7,232 @@ using System.IO;
 
 namespace ConsoleApplication1
 {
-    //This is Publisher Class
-    class CheckNames
+    class Program
     {
-        //declares built-in delegates
-        public event EventHandler<EventArgs> ev_BadNames; 
 
-        public void Check(string name)
-        {
-            //string strName;
-            //Console.WriteLine("Hello, what is your name? ");
-            //strName = Console.ReadLine();
-            strName = name;
-            //Check if name is a bad name then raise event
-            if ((strName == "Jack") || (strName == "Steven") || (strName == "Mathew") || (ev_BadNames != null))
-            {
-                ev_BadNames(this, EventArgs.Empty); //Raised Event
-            }
-        }
-    }
-    class Program 
-    {
-        static void Main(string[] args)
-        {
-            string strName;
-            Console.WriteLine("Hello, what is your name? ");
-            strName = Console.ReadLine();
-            CheckNames ch = new CheckNames();
-            //Event gets binded with delegates
-            ch.ev_BadNames += EventMessage;
-            ch.Check(strName);
-            Console.WriteLine("Well hello " + strName);
-            Console.Read();
-        }
-        //Delegates calls this method when event raised.  
-        static void EventMessage(object sender, EventArgs e)
-        {
-            Console.WriteLine("***YOU ARE BANNED FROM THIS ORGANIZATION***");
-            Console.WriteLine("***EMAIL SENT TO ADMINISTRATION***");
-        }
     }
 }
+    /// <summary>
+    /// EXAMPLE OF DYNAMIC POLYMORPHISM OVERRIDING BASE CLASS USING VIRTUAL (IN BASE CLASS) AND OVERRIDE (IN CHILD CLASS)
+    /// </summary>
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Ferrari f = new Ferrari();
+//            f.TyreSize();
+//            Console.ReadKey();
+//        }
+//    }
+//    public class Tyre
+//    {
+//        public virtual void TyreSize()
+//        {
+//            Console.WriteLine("Default Tyre Size is 13 Inches");
+//        }
+//    }
+//    public class Ferrari : Tyre
+//    {
+//        public override void TyreSize()
+//        {
+//            base.TyreSize(); ///ISAAC FYI calling the base class here. This is why output shows the virtual method even though it is overloaded
+//            Console.WriteLine("Tyre Size is Overriden and new Tyre Size is : 14 Inches");
+//        }
+//    }
+//}
+    /// <summary>
+    /// EXAMPLE OF STATIC POLYMORPHISM #2. METHODS CAN BE OVERLOADED DUE TO DATATYPE
+    /// </summary>
+//    class Program
+//    {
+//        public void Convert()
+//        {
+//            Console.WriteLine("No Data to Convert");
+//        }
+//        public void Convert(int num)
+//        {
+//            Console.WriteLine("Converted integer to string {0}", num.ToString());
+//        }
+//        public void Convert(double num)
+//        {
+//            Console.WriteLine("Converted double to string {0}", num.ToString());
+//        }
+//        public void Convert(float num)
+//        {
+//            Console.WriteLine("Converted float to string {0}", num.ToString());
+//        }
+//    static void Main(string[] args)
+//        {
+//            int intNum = 10;
+//            double dbNum = 20.54;
+//            float ftNum = 30;
+//            Program p = new Program();
+//            p.Convert();
+//            p.Convert(intNum);
+//            p.Convert(dbNum);
+//            p.Convert(ftNum);
+//            DateTime dt = DateTime.Now; //cool feature to tell current date need to create object for it though
+//            Console.WriteLine("Here are all the converted variables");
+//            Console.ReadKey();
+
+//        }
+//    }
+//}
+
+    /// <summary>
+    /// EXAMPLE OF STATIC POLYMORPHISM (METHOD OVERLOADING) ALSO USING DATETIME STRUC TO CAPTURE CURRENT DATE
+    /// </summary>
+//    class Program
+//    {
+//        public void save()
+//        {
+//            Console.WriteLine("No Data to Saved");
+//        }
+//        public void save(string name)
+//        {
+//            Console.WriteLine("{0} saved", name);
+//        }
+//        public void save(string name, int age)
+//        {
+//            Console.WriteLine("{0} and {1} - Saved", name, age);
+//        }
+//        public void save(string name, int age, string date)
+//        {
+//            Console.WriteLine("{0} and {1} are saved on {2}", name, age, date);
+//        }
+//        static void Main(string[] args)
+//        {
+//            Program p = new Program();
+//            p.save();
+//            p.save("Jack");
+//            DateTime dt = DateTime.Now; //cool feature to tell current date need to create object for it though
+//            p.save("Jack", 22, dt.ToShortDateString());
+//            Console.ReadKey();
+
+//        }
+//    }
+//}
+/// <summary>
+/// EXAMPLE OF PASSING USER INPUT TO CONSTRUCTOR THEN HAVING 1 METHOD AND ANOTHER CLASS PERFORM OPERATIONS ON USERS INPUT
+/// </summary>
+//    class Operations
+//    {
+//        int intResult, intNum, intNum2;
+//        public Operations(int num, int num2)
+//        {
+//            intNum = num;
+//            intNum2 = num2;
+//        }
+
+//        public int calculating()
+//        {
+//            if ((intNum > 10) && (intNum2 > 10))
+//            {
+//                intResult = intNum - intNum2;
+//            }
+//            else if ((intNum < 10) && (intNum2 < 10))
+//            {
+//                intResult = intNum + intNum2;
+//            }
+//            return intResult;
+//        }
+//    }
+
+//    class CalculateResult
+//    {
+//        public int calculating(int result)
+//        {
+//            return result + 10;
+//        }
+//    }
+
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            int intNum, intNum2, intResult;
+//            Console.Write("Hello, please enter a number: ");
+//            intNum = Int32.Parse(Console.ReadLine());
+//            Console.Write("Hello, please enter a second number: ");
+//            intNum2 = Int32.Parse(Console.ReadLine());
+//            Operations ops = new Operations(intNum, intNum2);
+//            intResult = ops.calculating();
+//            Console.Write("This is your result: " + intResult);
+//            Console.ReadLine();
+//            Console.WriteLine("Lets add 10 to the result");
+//            CalculateResult calres = new CalculateResult();
+//            intResult = calres.calculating(intResult);
+//            Console.WriteLine(intResult);
+//            Console.ReadLine();
+//        }
+//    }
+//}
+/// <summary>
+/// EXAMPLE OF USING EVENTS AND STARTING AN ALARM - CONSOLE BEEP SOUND
+/// </summary>
+//    //This is Publisher Class
+//    class CheckNames
+//    {
+//        //Declaring variables
+//        public string strName;
+//        //declares built-in delegates
+//        public event EventHandler<EventArgs> ev_BadNames; 
+
+//        public void Check()
+//        {
+//            Console.Write("Hello, what is your name? ");
+//            strName = Console.ReadLine();
+
+//            //Check if name is a bad name then raise event
+//            if ((strName == "Jack") || (strName == "Steven") || (strName == "Mathew"))
+//            {
+//                ev_BadNames(this, EventArgs.Empty); //Raised Event. Can pass a parameter by replacing Empty
+
+//                Console.Read();
+//            }
+//            else
+//            {
+//                Console.WriteLine("Well hello " + strName);
+//                Console.Read();
+//            }
+
+//        }
+//    }
+//    class Program 
+//    {
+//        public static void Main(string[] args)
+//        {
+//            CheckNames ch = new CheckNames();
+
+//            //Event gets binded with delegates
+//            ch.ev_BadNames += EventMessage;
+//            ch.Check();
+
+//        }
+//        //Delegates calls this method when event raised.  
+//        static void EventMessage(object sender, EventArgs e)
+//        {
+//            Console.WriteLine("***YOU ARE BANNED FROM THIS ORGANIZATION***");
+//            Console.WriteLine("***EMAIL SENT TO ADMINISTRATION***");
+//            Console.WriteLine("Warning Alarm Started.");
+//            Console.WriteLine("Press Ctrl + c to stop the alarm");
+//            for(;;)
+//            {
+//                Console.Beep(); //starts alarm
+//                System.Threading.Thread.Sleep(100);
+//            }
+//        }
+//    }
+//}
 //Write a program for Online Attendance.The conditions are as follow:
 //User provides their name as Input and then application show message to “Welcome to their Name”.
 //Jack, Steven and Mathew are banned for the organization. So, when any user enters Jack, Steven 
 //and Mathew as user name, the application raised an event and fire alarm as well as sends email to administration.
 
 
-    /// <summary>
-    /// EXAMPLE OF INHERITANCE ACCESSING CONSTANT VARIABLES IN BASE CLASS
-    /// </summary>
+/// <summary>
+/// EXAMPLE OF INHERITANCE ACCESSING CONSTANT VARIABLES IN BASE CLASS
+/// </summary>
 //    public class PrintMe : Laptop
 //    {
 //        public void DisplayMe(string name, string price, string processor, string ram, string hardDrive)
