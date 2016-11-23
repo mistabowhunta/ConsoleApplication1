@@ -7,55 +7,97 @@ using System.IO;
 
 namespace ConsoleApplication1
 {
-    class PrintMe : Item
+    //This is Publisher Class
+    class CheckNames
     {
-        //public void DisplayMe(string name, string price, string processor, string ram, string hardDrive)
-        public void DisplayMe()
+        //declares built-in delegates
+        public event EventHandler<EventArgs> ev_BadNames; 
+
+        public void Check(string name)
         {
-            //strName = name;
-            //strPrice = price;
-            //strProcessor = processor;
-            //strRam = ram;
-            //strHardDrive = hardDrive;
-            Console.WriteLine("*******************");
-            Console.WriteLine("Name: " + strName);
-            Console.WriteLine("Price: " + strPrice);
-            Console.WriteLine("Processor: " + strProcessor);
-            Console.WriteLine("Ram: " + strRam);
-            Console.WriteLine("Hard Drive: " + strHardDrive);
-            Console.WriteLine("*******************");
-            public override void newItem()
+            //string strName;
+            //Console.WriteLine("Hello, what is your name? ");
+            //strName = Console.ReadLine();
+            strName = name;
+            //Check if name is a bad name then raise event
+            if ((strName == "Jack") || (strName == "Steven") || (strName == "Mathew") || (ev_BadNames != null))
             {
-            //enter something here
+                ev_BadNames(this, EventArgs.Empty); //Raised Event
             }
         }
     }
-
-    abstract class Item
-        {
-            
-            public const string strName = "Dell";
-            public const string strPrice = "$7000";
-            public const string strProcessor = "i7";
-            public const string strRam = "5GB";
-            public const string strHardDrive = "1TB";
-            public abstract void newItem();
-         }
-    
     class Program 
     {
         static void Main(string[] args)
         {
-            PrintMe Dell = new PrintMe();
-            Dell.DisplayMe();
-            Console.ReadLine();
-            
+            string strName;
+            Console.WriteLine("Hello, what is your name? ");
+            strName = Console.ReadLine();
+            CheckNames ch = new CheckNames();
+            //Event gets binded with delegates
+            ch.ev_BadNames += EventMessage;
+            ch.Check(strName);
+            Console.WriteLine("Well hello " + strName);
+            Console.Read();
+        }
+        //Delegates calls this method when event raised.  
+        static void EventMessage(object sender, EventArgs e)
+        {
+            Console.WriteLine("***YOU ARE BANNED FROM THIS ORGANIZATION***");
+            Console.WriteLine("***EMAIL SENT TO ADMINISTRATION***");
         }
     }
 }
+//Write a program for Online Attendance.The conditions are as follow:
+//User provides their name as Input and then application show message to “Welcome to their Name”.
+//Jack, Steven and Mathew are banned for the organization. So, when any user enters Jack, Steven 
+//and Mathew as user name, the application raised an event and fire alarm as well as sends email to administration.
+
+
     /// <summary>
-    /// EXAMPLE OF INHERITANCE
+    /// EXAMPLE OF INHERITANCE ACCESSING CONSTANT VARIABLES IN BASE CLASS
     /// </summary>
+//    public class PrintMe : Laptop
+//    {
+//        public void DisplayMe(string name, string price, string processor, string ram, string hardDrive)
+//        {
+
+//            Console.WriteLine("*******************");
+//            Console.WriteLine("Name: " + strName);
+//            Console.WriteLine("Price: " + strPrice);
+//            Console.WriteLine("Processor: " + strProcessor);
+//            Console.WriteLine("Ram: " + strRam);
+//            Console.WriteLine("Hard Drive: " + strHardDrive);
+//            Console.WriteLine("*******************");
+
+//        }
+//    }
+
+//   public class Laptop
+
+//    {
+//        public const string strName = "Dell";
+//        public const string strPrice = "$7000";
+//        public const string strProcessor = "i7";
+//        public const string strRam = "5GB";
+//        public const string strHardDrive = "1TB";
+//    }
+
+
+//    class Program 
+//    {
+//        static void Main(string[] args)
+//        {
+//            PrintMe PM = new PrintMe();
+//            PM.DisplayMe(Laptop.strName, Laptop.strPrice, Laptop.strProcessor, Laptop.strRam, Laptop.strHardDrive);
+//            Console.ReadLine();
+
+//        }
+//    }
+//}
+/// <summary>
+/// EXAMPLE OF INHERITANCE
+/// </summary>
 //    class Car: CarDetails
 //    {
 //        //calling base class constructor
@@ -66,7 +108,7 @@ namespace ConsoleApplication1
 //        {
 //            Console.WriteLine("Color of the car is " + color);
 //        }
-        
+
 //    }
 //    class CarDetails
 //    {
@@ -112,9 +154,9 @@ namespace ConsoleApplication1
 //        }
 //    }
 //}
-    /// <summary>
-    /// EXAMPLE OF ACCESSING PRIVATE VARIABLE IN BASE CLASS
-    /// </summary>
+/// <summary>
+/// EXAMPLE OF ACCESSING PRIVATE VARIABLE IN BASE CLASS
+/// </summary>
 //    class baseclass
 //    {
 //        public int pub_var = 5;
@@ -137,7 +179,7 @@ namespace ConsoleApplication1
 //    {
 //        public void check ()
 //        {
-            
+
 //            int sum = pub_var + pro_var + inter_var + PublicVariable;
 //            Console.WriteLine("Total : " + sum.ToString());
 //        }
@@ -153,9 +195,9 @@ namespace ConsoleApplication1
 //    }
 //}
 
-    /// <summary>
-    /// GREAT  EXAMPLE OF A FILE HANDLING PROGRAM ASKING FOR USER INPUT. ALSO USING CLASSES TO DO THE WORK
-    /// </summary>
+/// <summary>
+/// GREAT  EXAMPLE OF A FILE HANDLING PROGRAM ASKING FOR USER INPUT. ALSO USING CLASSES TO DO THE WORK
+/// </summary>
 //    class WriteData
 //    {
 //        public static string strName, strCity, strSubject, strData;
@@ -268,7 +310,7 @@ namespace ConsoleApplication1
 //                //initializing variables with user's input and writing to a text file
 //                WriteData wd = new WriteData();
 //                wd.writingData();
-                
+
 //                Console.WriteLine("What would you like to do next?");
 //                Console.WriteLine();
 //                Console.WriteLine("Press 1 to view saved file");
@@ -300,7 +342,7 @@ namespace ConsoleApplication1
 //                {
 //                    Console.WriteLine("Invalid Input (just testing");
 //                    Console.WriteLine("More Details about Error: \n\n" + fex.ToString() + "\n\n");
-                   
+
 
 //                }
 
@@ -317,9 +359,9 @@ namespace ConsoleApplication1
 //Print following option on console screen.
 //View Saved File
 //View Directory Details
-    /// <summary>
-    /// EXAMPLE OF CREATING AND DELETING DIRECTORIES USING DIRECTORYINFO
-    /// </summary>
+/// <summary>
+/// EXAMPLE OF CREATING AND DELETING DIRECTORIES USING DIRECTORYINFO
+/// </summary>
 //    class Program
 //    {
 //        static void Main(string[] args)
